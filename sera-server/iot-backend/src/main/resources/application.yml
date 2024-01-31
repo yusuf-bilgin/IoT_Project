@@ -1,0 +1,48 @@
+logging:
+  level:
+    root: INFO
+    org.springframework.web: DEBUG
+    org.springframework.security: DEBUG
+    org.hibernate.sql: DEBUG
+    org.hibernate.type.descriptor.sql: TRACE
+#    org.springframework.boot.autoconfigure: DEBUG
+
+
+spring:
+  datasource:
+#    url: jdbc:h2:mem:testdb
+#    driver-class-name: org.h2.Driver
+#    username: sa
+#    password: password
+    generate-unique-name: false
+  h2:
+    console:
+      enabled: true
+      settings:
+        web-allow-others: true
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+  data:
+    web:
+      pageable:
+        max-page-size: 30
+
+
+#flyway:
+#  enabled:false
+
+jwt:
+  private.key: classpath:app.key
+  public.key: classpath:app.pub
+
+
+ml:
+  script.path: ML/classification_script.py
+  image.upload.directory: ML/uploads
+  model.path: ML/model
+
+server:
+  port: 8080
